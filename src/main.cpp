@@ -1,27 +1,30 @@
-#include <raylib.h>
-#include "ball.h"
+#include "raylib.h"
+#include"grid.h"
+ 
 
 int main()
 {
-    Color darkGreen = Color{20, 160, 133, 255};
+    Color darkBlue = {44,44,127,255};
+    InitWindow(300,600 ,"First Game") ;
+    SetTargetFPS(180);
 
-    const int screenWidth = 800;
-    const int screenHeight = 600;
+    Grid grid = Grid() ;
+    grid.Print() ;
 
-    Ball ball = Ball();
 
-    InitWindow(screenWidth, screenHeight, "My first RAYLIB program!");
-    SetTargetFPS(60);
-
-    while (!WindowShouldClose())
+    while (WindowShouldClose()== false)
     {
-        BeginDrawing();
-        ClearBackground(darkGreen);
-        ball.Update();
-        ball.Draw();
-        EndDrawing();
+      BeginDrawing();
+      ClearBackground(darkBlue) ;
+      grid.Draw();
+
+
+      EndDrawing() ;
+
     }
+    
 
     CloseWindow();
-    return 0;
+
+
 }
